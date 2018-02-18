@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>后台登录-会场管理-添加会场-添加</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<!--<link rel="stylesheet" href="css/font.css" />-->
+		<link rel="stylesheet" href="../../../../../Public/sign/css/font.css" />
+		<!--<link rel="stylesheet" href="css/xadmin.css" />-->
+		<link rel="stylesheet" href="../../../../../Public/sign/css/xadmin.css" />
+		<!--<link rel="stylesheet" href="css/swiper.css">-->
+		<link rel="stylesheet" href="../../../../../Public/sign/css/swiper.css" />
+		<!--<script type="text/javascript" src="js/jquery.js"></script>-->
+		<script type="text/javascript" src="../../../../../Public/sign/js/jquery.js" ></script>
+		<!--<script type="text/javascript" src="js/swiper.js"></script>-->
+		<script type="text/javascript" src="../../../../../Public/sign/js/swiper.js" ></script>
+		<!--<script src="./lib/layui/layui.js" charset="utf-8"></script>-->
+		<!--<script src="lib/layui/layui.js" charset="utf-8"></script>-->
+		<script type="text/javascript" src="../../../../../Public/sign/lib/layui/layui.js" ></script>
+		<!--<script type="text/javascript" src="js/xadmin.js"></script>-->
+		<script type="text/javascript" src="../../../../../Public/sign/js/xadmin.js" ></script>
+		<!--   <script type="text/javascript" src="./js/xadmin.js"></script>-->
+		<link rel="stylesheet" href="../../../../../Public/sign/css/seat.css" />
+		<script type="text/javascript" src="../../../../../Public/sign/js/jquery.seat-charts.min.js" ></script>
+	</head>
+
+	<body>
+		<form class="layui-form">
+			<div class="layui-form-item">
+				<label for="level-name" class="layui-form-label">
+                <span class="x-red">*</span>会场编号
+            </label>
+				<div class="layui-input-inline">
+					<input type="text" id="level-name" name="level-name" required="" lay-verify="required" autocomplete="off" value="" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label for="level-kiss" class="layui-form-label">
+                <span class="x-red">*</span>会场名称
+            </label>
+				<div class="layui-input-inline">
+					<input type="text" id="level-kiss" name="level-kiss" required="" value="10" lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label for="level-kiss" class="layui-form-label">
+                <span class="x-red">*</span>地点
+            </label>
+				<div class="layui-input-inline">
+					<input type="text" id="level-kiss" name="level-kiss" required="" value="10" lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label for="level-kiss" class="layui-form-label">
+                <span class="x-red">*</span>座位数
+            </label>
+				<div class="layui-input-inline">
+					<input type="text" id="level-kiss" name="level-kiss" required="" value="10" lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label for="level-kiss" class="layui-form-label">
+                <span class="x-red">*</span>座位选择
+           </label>
+			</div>
+<div id="main">
+
+			<div class="demo">
+				<div id="seat-map">
+					<div class="front" style="margin-left: auto;margin-right: auto;">屏幕</div>
+				</div>
+				<!--<div class="booking-details">
+					<p>使用方法：</p>
+					<p><span style="margin-left: 50px;">单击选位</span></p>
+					<p><span style="margin-left: 50px;">双击去除位置</span></p>
+					<ul id="selected-seats"></ul>
+					<p>座位数：<span id="counter">0</span></p>
+					<p>总计：<b>￥<span id="total">0</span></b></p>
+
+					<button class="checkout-button">确定</button>
+
+					<div id="legend"></div>
+				</div>-->
+				<div style="clear:both"></div>
+			</div>
+
+			<br/>
+		</div>
+			<div class="layui-form-item">
+				<label for="L_repass" class="layui-form-label">
+            </label>
+				<button class="layui-btn" lay-filter="save" lay-submit="">
+                保存
+            </button>
+			</div>
+		</form>
+		<script>
+			/*用户-添加*/
+			function member_add(title, url, w, h) {
+				x_admin_show(title, url, w, h);
+			}
+			/*用户-查看*/
+			function member_show(title, url, id, w, h) {
+				x_admin_show(title, url, w, h);
+			}
+		</script>
+		<script type="text/javascript">
+			//存储被选的座位号
+			//			var index = 0;
+			var price = 80; //票价
+			$(document).ready(function() {
+				//存储被选的座位号
+				var location = new Array();
+
+				var $cart = $('#selected-seats'), //座位区
+					$counter = $('#counter'), //票数
+					$total = $('#total'); //总计金额
+				//__________
+				//				var map = ["dsafadsfadsfads","____________","adsfadsfadsf"];
+				//				var map = new Array();
+				//				map[0]='dsafadsfadsfadsadsfadsfadsfads';
+				//				map[1]='____________dasf';
+				//				map[2]='adsfadsfadsf';
+				var sc = $('#seat-map').seatCharts({
+					//					map
+					map: [ //座位图
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+						'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+					],
+					//					,
+					naming: {
+						//						left:false,
+						top: false,
+						getLabel: function(character, row, column) {
+							return column;
+						}
+						//						getId: function(e, t, n){
+						//								return t +'_'+ n;
+						//						}
+					},
+					legend: { //定义图例
+						node: $('#legend'),
+						items: [
+							['a', 'available', '可选座'],
+							['a', 'unavailable', '已选座']
+						]
+					},
+					click: function() { //点击事件
+						if(this.status() == 'available') { //可选座
+							//存储被选的座位号
+							//							var a=this.settings.row+1;
+							//							var b=this.settings.label;
+							//							location[index]= a+","+b;
+							//							index++;
+							//							alert(a+","+b);
+
+							$('<li>' + (this.settings.row + 1) + '排' + this.settings.label + '座</li>')
+								.attr('id', 'cart-item-' + this.settings.id)
+								.data('seatId', this.settings.id)
+								.appendTo($cart);
+
+							$counter.text(sc.find('selected').length + 1);
+							$total.text(recalculateTotal(sc) + price);
+
+							return 'selected';
+						} else if(this.status() == 'selected') { //已选中
+							//减去被删去的座位号
+							//							index--;
+
+							//更新数量
+							$counter.text(sc.find('selected').length - 1);
+							//更新总计
+							$total.text(recalculateTotal(sc) - price);
+
+							//删除已预订座位
+							$('#cart-item-' + this.settings.id).remove();
+							//可选座
+							return 'available';
+						} else if(this.status() == 'unavailable') { //已售出
+							return 'unavailable';
+						} else {
+							return this.style();
+						}
+					}
+				});
+				//已售出的座位'1_2', '4_4', '4_5', '6_6', '6_7', '8_5', '8_6', '8_7', '8_8', '10_1', '10_2'
+				sc.get([]).status('unavailable');
+
+			});
+			//计算总金额
+			function recalculateTotal(sc) {
+				var total = 0;
+				sc.find('selected').each(function() {
+					total += price;
+				});
+
+				return total;
+			}
+		</script>
+	</body>
+
+</html>

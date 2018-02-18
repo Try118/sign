@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>后台登录-会议管理-新建会议</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<!--<link rel="stylesheet" href="css/font.css" />-->
+		<link rel="stylesheet" href="../../../../Public/sign/css/font.css" />
+		<!--<link rel="stylesheet" href="css/xadmin.css" />-->
+		<link rel="stylesheet" href="../../../../Public/sign/css/xadmin.css" />
+		<!--<link rel="stylesheet" href="css/swiper.css">-->
+		<link rel="stylesheet" href="../../../../Public/sign/css/swiper.css" />
+		<!--<script type="text/javascript" src="js/jquery.js"></script>-->
+		<script type="text/javascript" src="../../../../Public/sign/js/jquery.js" ></script>
+		<!--<script type="text/javascript" src="js/swiper.js"></script>-->
+		<script type="text/javascript" src="../../../../Public/sign/js/swiper.js" ></script>
+		<!--<script src="./lib/layui/layui.js" charset="utf-8"></script>-->
+		<!--<script src="lib/layui/layui.js" charset="utf-8"></script>-->
+		<script type="text/javascript" src="../../../../Public/sign/lib/layui/layui.js" ></script>
+		<!--<script type="text/javascript" src="js/xadmin.js"></script>-->
+		<script type="text/javascript" src="../../../../Public/sign/js/xadmin.js" ></script>
+		<!--   <script type="text/javascript" src="./js/xadmin.js"></script>-->
+
+	</head>
+
+	<body>
+		<form class="layui-form">
+			<!--<div class="layui-form-item">
+            <label for="level-id" class="layui-form-label">
+                id
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="level-id" name="level-id" disabled="" value="20" class="layui-input">
+            </div>
+        </div>-->
+			<div class="layui-form-item">
+				<label for="level-name" class="layui-form-label">
+                <span class="x-red">*</span>会议名称
+            </label>
+				<div class="layui-input-inline">
+					<input type="text" id="level-name" name="level-name" required="" lay-verify="required" autocomplete="off" value="回复" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label for="level-kiss" class="layui-form-label">
+                <span class="x-red">*</span>时间
+            </label>
+				<div class="layui-input-inline">
+					<input type="text" id="level-kiss" name="level-kiss" required="" value="10" lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label for="level-kiss" class="layui-form-label">
+                <span class="x-red">*</span>地点
+            </label>
+				<div class="layui-input-inline">
+					<input type="text" id="level-kiss" name="level-kiss" required="" value="10" lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item layui-form-text">
+				<label for="L_sign" class="layui-form-label">
+                       <span class="x-red">*</span>内容
+                    </label>
+				<div class="layui-input-block">
+					<textarea placeholder="内容" id="L_sign" name="sign" autocomplete="off" class="layui-textarea" style="height: 80px;"></textarea>
+				</div>
+			</div>
+			<div class="layui-form-item layui-form-text" style="display: none;">
+				<label for="L_sign" class="layui-form-label">
+                       <span class="x-red">*</span>被选人员
+                    </label>
+				<div class="layui-input-block">
+					<textarea placeholder="内容" id="L_sign" name="sign" autocomplete="off" class="layui-textarea" style="height: 80px;"></textarea>
+				</div>
+			</div>
+			<div class="layui-form-item" style="display: none;">
+				<label for="level-kiss" class="layui-form-label">
+                <span class="x-red">*</span>被选群组
+            </label>
+				<div class="layui-input-inline">
+					<input type="text" id="level-kiss" name="level-kiss" required="" value="10" lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label for="level-kiss" class="layui-form-label">
+                <span class="x-red">*</span>选择人员
+            </label>
+				<div class="layui-btn" id="member">
+					<a style="cursor:pointer" >
+                	人员选择
+                	</a>
+            </div>
+				<div class="layui-btn" >
+            	<a style="cursor:pointer" id="group">
+                	群组选择
+                </a>
+            </div>
+			</div>
+					<!-- 右侧内容框架，更改从这里开始 -->
+						<div class="wrapper">
+			<!-- 右侧主体开始 -->
+			<div class="page-content" style="display: none;" id="add_member">
+				<div >
+					<!-- 右侧内容框架，更改从这里开始 -->
+					<div class="layui-form">
+						<table class="layui-table">
+							<thead>
+								<tr>
+									<th>
+										勾选栏
+										<th>
+											ID
+										</th>
+										<th>
+											用户名
+										</th>
+										<th>
+											一卡通号
+										</th>
+										<th>
+											学院
+										</th>
+										<th>
+											班级
+										</th>
+										<th>
+											职务
+										</th>
+										<th>
+											电话
+										</th>
+										<th>
+											短号
+										</th>
+										<!--<th>
+									操作
+								</th>-->
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input type="checkbox" value="1" name="">
+									</td>
+									<td>
+										1
+									</td>
+									<td>
+										<!--<u style="cursor:pointer" onclick="member_show('张三','member-show.html','10001','360','400')">-->
+										楚杰
+										<!--</u>-->
+									</td>
+									<td>
+										1624234
+									</td>
+									<td>
+										计算机学院
+									</td>
+									<td>
+										1605
+									</td>
+									<td>
+										班長
+									</td>
+									<td>
+										2017-01-01 11:11:42
+									</td>
+									<td>
+										<!--<td class="td-status">-->
+										<!--<span class="layui-btn layui-btn-normal layui-btn-mini">-->
+										664564
+										<!--</span>-->
+									</td>
+									
+								</tr>
+								<tr>
+									<td>
+										<input type="checkbox" value="1" name="">
+									</td>
+									<td>
+										2
+									</td>
+									<td>
+										<!--<u style="cursor:pointer" onclick="member_show('张三','member-show.html','10001','360','400')">-->
+										姚喜
+										<!-- </u>-->
+									</td>
+									<td>
+										161111111
+									</td>
+									<td>
+										计算机学院
+									</td>
+									<td>
+										1605
+									</td>
+									<td>
+										班長
+									</td>
+									<td>
+										2017-01-01 11:11:42
+									</td>
+									<td>
+										<!--<td class="td-status">-->
+										<!--<span class="layui-btn layui-btn-normal layui-btn-mini">-->
+										664564
+										<!--</span>-->
+									</td>
+									<!--<td class="td-manage">
+									<a style="text-decoration:none" onclick="member_stop(this,'10001')" href="javascript:;" title="停用">
+										<i class="layui-icon">&#xe601;</i>
+									</a>
+									<a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-edit.html','4','','510')" class="ml-5" style="text-decoration:none">
+										<i class="layui-icon">&#xe642;</i>
+									</a>
+									<a style="text-decoration:none" onclick="member_password('修改密码','member-password.html','10001','600','400')" href="javascript:;" title="修改密码">
+										<i class="layui-icon">&#xe631;</i>
+									</a>
+									<a title="删除" href="javascript:;" onclick="member_del(this,'1')" style="text-decoration:none">
+										<i class="layui-icon">&#xe640;</i>
+									</a>
+								</td>-->
+								</tr>
+							</tbody>
+						</table>
+						
+				</div>
+				</div>
+				<!-- 右侧内容框架，更改从这里结束 -->
+			</div>
+		</div>
+						<!-- 右侧内容框架，更改从这里开始 -->
+						<div class="wrapper">
+			<!-- 右侧主体开始 -->
+			<div class="page-content" style="display: none;" id="add_group">
+				<div>
+					<!-- 右侧内容框架，更改从这里开始 -->
+					<div class="layui-form">
+						<table class="layui-table">
+							<thead>
+								<tr>
+									<th>
+										勾选栏
+										<th>
+											ID
+										</th>
+										<th>
+											群名称
+										</th>
+										
+										
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input type="checkbox" value="1" name="">
+									</td>
+									<td>
+										1
+									</td>
+									<td>
+										<!--<u style="cursor:pointer" onclick="member_show('张三','member-show.html','10001','360','400')">-->
+										118
+										<!--</u>-->
+									</td>
+									
+									
+								</tr>
+								<tr>
+									<td>
+										<input type="checkbox" value="1" name="">
+									</td>
+									<td>
+										2
+									</td>
+									<td>
+										<!--<u style="cursor:pointer" onclick="member_show('张三','member-show.html','10001','360','400')">-->
+										508
+										<!-- </u>-->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						
+				</div>
+				</div>
+				<!-- 右侧内容框架，更改从这里结束 -->
+			</div>
+		</div>
+			<div class="layui-form-item">
+				<label for="L_repass" class="layui-form-label">
+            </label>
+				<button class="layui-btn" lay-filter="save" lay-submit="">
+                保存
+            </button>
+			</div>
+			
+		</form>
+	<script>
+				/*用户-查看*/
+			function member_show(title, url, id, w, h) {
+				x_admin_show(title, url, w, h);
+			}
+		</script>
+		<!--隐藏和显示选择群组-->
+		<script >
+			$(document).ready(function() {
+				$("#member").click(function() {
+					$("#add_member").toggle();
+					$("#add_group").hide();
+				});
+				$("#group").click(function() {
+					$("#add_group").toggle();
+					$("#add_member").hide();
+				});
+			});
+		</script>
+	</body>
+
+</html>

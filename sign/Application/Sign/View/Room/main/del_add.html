@@ -27,13 +27,13 @@
 	</head>
 
 	<body>
-		<form class="layui-form">
+		<form class="layui-form" method="post" action="{:U('Roommain/add_room')}">
 			<div class="layui-form-item">
 				<label for="level-name" class="layui-form-label">
                 <span class="x-red">*</span>会场编号
             </label>
 				<div class="layui-input-inline">
-					<input type="text" id="level-name" name="level-name" required="" lay-verify="required" autocomplete="off" value="" class="layui-input">
+					<input type="text"   id="room_id" name="room_id" required="" lay-verify="required" autocomplete="off" value="" class="layui-input">
 				</div>
 			</div>
 			<div class="layui-form-item">
@@ -41,7 +41,7 @@
                 <span class="x-red">*</span>会场名称
             </label>
 				<div class="layui-input-inline">
-					<input type="text" id="level-kiss" name="level-kiss" required="" value="10" lay-verify="required" autocomplete="off" class="layui-input">
+					<input type="text" id="level-kiss" name="room_name" required="" value="" lay-verify="required" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 			<div class="layui-form-item">
@@ -49,7 +49,7 @@
                 <span class="x-red">*</span>地点
             </label>
 				<div class="layui-input-inline">
-					<input type="text" id="level-kiss" name="level-kiss" required="" value="10" lay-verify="required" autocomplete="off" class="layui-input">
+					<input type="text" id="level-kiss" name="room_location" required="" value="" lay-verify="required" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 			<div class="layui-form-item">
@@ -57,12 +57,12 @@
                 <span class="x-red">*</span>座位数
             </label>
 				<div class="layui-input-inline">
-					<input type="text" id="level-kiss" name="level-kiss" required="" value="10" lay-verify="required" autocomplete="off" class="layui-input">
+					<input type="text" id="seat_number"  name="seat_number" required="" value=" " lay-verify="required" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<label for="level-kiss" class="layui-form-label">
-                <span class="x-red">*</span>座位选择
+                <span class="x-red" >*</span>座位选择
            </label>
 			</div>
 <div id="main">
@@ -91,7 +91,7 @@
 			<div class="layui-form-item">
 				<label for="L_repass" class="layui-form-label">
             </label>
-				<button class="layui-btn" lay-filter="save" lay-submit="">
+				<button class="layui-btn" type="submit" lay-filter="save" id="level-name"  lay-submit="" >
                 保存
             </button>
 			</div>
@@ -106,17 +106,19 @@
 				x_admin_show(title, url, w, h);
 			}
 		</script>
-		<script type="text/javascript">
+			<script type="text/javascript">
 			//存储被选的座位号
-			//			var index = 0;
+			var index = 1;
+			var aaaasb = new Array();	
 			var price = 80; //票价
+		
 			$(document).ready(function() {
 				//存储被选的座位号
-				var location = new Array();
-
+				
 				var $cart = $('#selected-seats'), //座位区
 					$counter = $('#counter'), //票数
 					$total = $('#total'); //总计金额
+					
 				//__________
 				//				var map = ["dsafadsfadsfads","____________","adsfadsfadsf"];
 				//				var map = new Array();
@@ -177,12 +179,16 @@
 					},
 					click: function() { //点击事件
 						if(this.status() == 'available') { //可选座
-							//存储被选的座位号
-							//							var a=this.settings.row+1;
-							//							var b=this.settings.label;
-							//							location[index]= a+","+b;
-							//							index++;
-							//							alert(a+","+b);
+//							存储被选的座位号
+													$('#seat_number').val(sc.find('selected').length +1);
+														var a=this.settings.row+1;
+														var b=this.settings.label;
+														
+														var c=(a-1)*30+b;
+														aaaasb[index]=c;
+														index++;
+////														alert(a+","+b);
+//														alert(aaaasb);
 
 							$('<li>' + (this.settings.row + 1) + '排' + this.settings.label + '座</li>')
 								.attr('id', 'cart-item-' + this.settings.id)
@@ -226,6 +232,37 @@
 
 				return total;
 			}
+			
+			
+		</script>
+		<script>
+			$(document).ready(function(){
+   			 $("#level-name").click(function(){
+   			 var room_id = $("#room_id").val(); //获取  
+        		var myarray = new Array();
+				myarray = aaaasb;
+				aaaasb[0]=room_id;
+//				alert(myarray);
+//var k=12312;
+//				alert(1111);
+  
+				
+  
+			$.ajax({  
+   				 url: "{:U('Roommain/add_location')}",  
+   				 //data: { "selectedIDs": _list },  
+   				 data: {data: JSON.stringify(myarray)},  
+   				 dataType: "json",  
+// 				  processData: false,  // 不处理数据
+   				 type: "GET",  
+   				 //traditional: true,  
+   				 success: function (responseJSON) {  
+     			   // your logic  
+//    		  alert(responseJSON);  
+    			}  
+				});  
+   			 });
+			});
 		</script>
 	</body>
 

@@ -24,7 +24,7 @@
 	</head>
 	<body>
 		<div class="login-logo">
-			<h1>签到管理系统</h1></div>
+			<h1>签到管理系统111</h1></div>
 		<div class="login-box">
 			<form class="layui-form layui-form-pane" action="<?php echo U('checklogin');?>" method="post">
 				<h3>登录你的帐号</h3>

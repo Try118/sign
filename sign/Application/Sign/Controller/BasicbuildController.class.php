@@ -151,7 +151,7 @@ class BasicbuildController extends Controller{
 			dump($get);
 			$model_group=M('group');
 			$model_member=M('member_group');
-			$index['group_name']=$get['group_name'];
+			$get['group_name'];
 			$res=$model_group->where($index)->delete();
 			$model_member->where($index)->delete();
 			$this->redirect('Basicbuild/memberlevel');

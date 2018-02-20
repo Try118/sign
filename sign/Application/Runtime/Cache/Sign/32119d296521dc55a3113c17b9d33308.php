@@ -179,7 +179,7 @@
 					</form>
 					<xblock><button class="layui-btn layui-btn-danger" onclick="recoverAll()"><i class="layui-icon">&#xe640;</i>批量删除</button>
 						<button class="layui-btn" onclick="member_add('添加会场','<?php echo U('Roommain/del_add');?>','1100','600')"><i class="layui-icon">&#xe608;</i>添加</button>
-						<span class="x-right" style="line-height:40px">共有数据：88 条</span></xblock>
+						<span class="x-right" style="line-height:40px">共有数据：<?php echo ($length); ?> 条</span></xblock>
 					<table class="layui-table">
 						<thead>
 							<tr>
@@ -216,23 +216,23 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><tr>
 								<td>
 									<input type="checkbox" value="1" name="">
 								</td>
 								<td>
-									f400
+									<?php echo ($vol["room_id"]); ?>
 								</td>
 								<td>
-									<u style="cursor:pointer" onclick="member_show('张三','member-show.html','10001','360','400')">
-                               		 国际会议中心
+									<u style="cursor:pointer" onclick="member_show('<?php echo ($vol["room_name"]); ?>座位展示图','<?php echo U('Roommain/del_show');?>?room_id=<?php echo ($vol["room_id"]); ?>','10001','1100','600')">
+                               		<?php echo ($vol["room_name"]); ?>
                             		</u>
 								</td>
 								<td>
-									图书馆附近
+									<?php echo ($vol["room_location"]); ?>
 								</td>
 								<td>
-									53
+									<?php echo ($vol["seat_number"]); ?>
 								</td>
 								<!--<td>
 									admin@mail.com
@@ -252,11 +252,11 @@
 									<!--<a style="text-decoration:none" onclick="member_recover(this,'10001')" href="javascript:;" title="恢复">
 										<i class="layui-icon">&#xe618;</i>
 									</a>-->
-									<a title="彻底删除" href="javascript:;" onclick="member_unset(this,'1')" style="text-decoration:none">
+									<a title="彻底删除" href="<?php echo U('Roommain/del_room');?>?room_id=<?php echo ($vol["room_id"]); ?>" onclick="member_unset(this,'1')" style="text-decoration:none">
 										<i class="layui-icon">&#xe640;</i>
 									</a>
 								</td>
-							</tr>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 						</tbody>
 					</table>
 					<!-- 右侧内容框架，更改从这里结束 -->

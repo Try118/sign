@@ -107,13 +107,9 @@ class RoommainController extends Controller{
 			$get=I('get.');
 			dump($get);
 			$model_room_information=M('room_information');
-			$model_room_location=M('room_location');
-			$length=strlen($get['room_id']);
-			$first = substr($get['room_id'],0,$length-1);
-			
-			$index['room_id']=$first;
-			$res=$model_room_information->where($index)->delete();
-		
+			$model_room_location=M('room_location');	
+			$index['room_id']=$get['room_id'];
+			$res=$model_room_information->where($index)->delete();	
 			$model_room_location->where($index)->delete();
 			$this->redirect('Roommain/memberdel');
 	}

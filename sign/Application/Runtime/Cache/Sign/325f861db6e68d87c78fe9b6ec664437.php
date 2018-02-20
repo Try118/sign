@@ -185,8 +185,9 @@
 														var b=this.settings.label;
 														
 														var c=(a-1)*30+b;
-														aaaasb[index]=c;
-														index++;
+														aaaasb[c]=c;
+//														aaaasb[index]=c;
+//														index++;
 ////														alert(a+","+b);
 //														alert(aaaasb);
 
@@ -202,7 +203,11 @@
 						} else if(this.status() == 'selected') { //已选中
 							//减去被删去的座位号
 							//							index--;
-
+														var a=this.settings.row+1;
+														var b=this.settings.label;
+														
+														var c=(a-1)*30+b;
+														aaaasb[c]="";
 							//更新数量
 							$counter.text(sc.find('selected').length - 1);
 							//更新总计

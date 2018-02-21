@@ -158,7 +158,7 @@
 			<div class="page-content">
 				<div class="content">
 					<!-- 右侧内容框架，更改从这里开始 -->
-					<form class="layui-form xbs" action="">
+					<form class="layui-form xbs" action="<?php echo U('Roommain/search_room');?>" method="post">
 						<div class="layui-form-pane" style="text-align: left;">
 							<div class="layui-form-item" style="display: inline-block;">
 								<!--<label class="layui-form-label xbs768">日期范围</label>
@@ -169,7 +169,7 @@
 									<input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
 								</div>-->
 								<div class="layui-input-inline">
-									<input type="text" name="username" placeholder="请输入会场名称" autocomplete="off" class="layui-input">
+									<input type="text" name="room_id" placeholder="请输入会场编号" autocomplete="off" class="layui-input">
 								</div>
 								<div class="layui-input-inline" style="width:80px">
 									<button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>

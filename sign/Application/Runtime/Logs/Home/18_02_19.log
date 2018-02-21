@@ -1,0 +1,30 @@
+[ 2018-02-19T11:52:00+08:00 ] 127.0.0.1 /index.php/Sign/Roommain/@Url.Action(/index.php/Sign/Roommain/add_location.html))
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000595s ]
+NOTIC: [2] preg_replace(): Compilation failed: unmatched parentheses at offset 6 D:\phpstudy\phpstudy\PHPTutorial\WWW\item\sign\sign\ThinkPHP\Library\Think\Dispatcher.class.php 第 127 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000640s ]
+ERR: 无法加载控制器:Roommain
+
+[ 2018-02-19T11:52:05+08:00 ] 127.0.0.1 /index.php/Sign/Roommain/@Url.Action(/index.php/Sign/Roommain/add_location.html))
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001455s ]
+NOTIC: [2] preg_replace(): Compilation failed: unmatched parentheses at offset 6 D:\phpstudy\phpstudy\PHPTutorial\WWW\item\sign\sign\ThinkPHP\Library\Think\Dispatcher.class.php 第 127 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001060s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001146s ]
+ERR: 无法加载控制器:Roommain
+
+[ 2018-02-19T11:52:22+08:00 ] 127.0.0.1 /index.php/Sign/Roommain/@Url.Action(/index.php/Sign/Roommain/add_location.html))
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000486s ]
+NOTIC: [2] preg_replace(): Compilation failed: unmatched parentheses at offset 6 D:\phpstudy\phpstudy\PHPTutorial\WWW\item\sign\sign\ThinkPHP\Library\Think\Dispatcher.class.php 第 127 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000697s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000740s ]
+ERR: 无法加载控制器:Roommain
+

@@ -1,0 +1,12 @@
+[ 2018-02-20T22:49:11+08:00 ] 127.0.0.1 /index.php/Room/main/member-del.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000546s ]
+ERR: 无法加载模块:Room
+
+[ 2018-02-20T23:34:01+08:00 ] 127.0.0.1 /index.php/Room/use/member-view.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000588s ]
+ERR: 无法加载模块:Room
+

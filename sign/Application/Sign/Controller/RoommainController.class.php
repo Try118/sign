@@ -113,5 +113,26 @@ class RoommainController extends Controller{
 			$model_room_location->where($index)->delete();
 			$this->redirect('Roommain/memberdel');
 	}
+			//搜索会场信息
+	public function search_room(){
+		if(IS_POST){
+			$post=I('post.','0','trim,htmlspecialchars');
+			$model=M('room_information');
+			$temp['room_id']=$post['room_id'];
+			$data = $model->where($temp)->select();
+			$length=count($data);
+			if($length==0){
+				$data = $model->select();
+				$length=count($data);
+				$this->assign('length',$length);
+				$this->assign('data',$data);
+				$this->display('Room/main/member-del');
+			}else{
+				$this->assign('length',$length);
+				$this->assign('data',$data);
+				$this->display('Room/main/member-del');
+			}
+			}
+		}
 	
 }
